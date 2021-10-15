@@ -6,7 +6,7 @@
 #    By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/13 11:20:36 by kde-oliv          #+#    #+#              #
-#    Updated: 2021/10/13 14:31:58 by kde-oliv         ###   ########.fr        #
+#    Updated: 2021/10/13 17:35:15 by kde-oliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,9 @@ $(NAME)	:		$(OBJS)
 				$(CC) $(FLAGS) -c $< -o $@ $(LFLAGS) -I ./libft
 
 $(LFT)	:
-				@echo " [ .. ] | Compiling minilibx.."
+				@echo " [ .. ] | Compiling libft.."
 				@make -s -C libft
-				@echo " [ OK ] | Minilibx ready!"
+				@echo " [ OK ] | libft ready!"
 
 clean	:
 				$(RM) $(OBJS)

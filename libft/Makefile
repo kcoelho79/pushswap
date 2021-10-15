@@ -6,7 +6,7 @@
 #    By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 19:14:22 by kde-oliv          #+#    #+#              #
-#    Updated: 2021/10/13 14:26:34 by kde-oliv         ###   ########.fr        #
+#    Updated: 2021/10/13 21:49:13 by kde-oliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		  ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c \
 		  ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-		  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+		  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_hasdigit.c
 
 BONUS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c
 
@@ -27,7 +27,7 @@ BONUS_OBJS	= $(BONUS:.c=.o)
 OBJS	= $(SRCS:.c=.o)
 CC		= cc
 RM		= rm -f
-CFLAGS 	= -Wall -Wextra -Werror -g
+CFLAGS 	= -Wall -Wextra -Werror -g -Fsanitize
 LFLAGS	= -I.
 
 all		:		$(NAME)

@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 13:27:47 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/15 18:34:20 by kde-oliv         ###   ########.fr       */
+/*   Created: 2021/10/15 17:02:44 by kde-oliv          #+#    #+#             */
+/*   Updated: 2021/10/15 18:46:11 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char **argv)
+int	sort(t_stack *stack)
 {
-	if (argc == 1)
-	{
-		write(1, "Error1\n", 7);
-		exit(1);
-	}
-	createStacks(argv);
-	
-	// #todo
-	// sort_Stack(stack)
-	// free_stack(stack_a);
-	// free_stack(stack_b);
-	return (0);
+	instruction(stack, NULL, "sa");
+	printstack(stack);
+
 }

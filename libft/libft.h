@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 18:43:30 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/06/10 10:34:36 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/15 13:42:36 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+int		ft_hasdigit(char *s);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
