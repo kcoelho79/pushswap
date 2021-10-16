@@ -6,13 +6,13 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:19:38 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/15 18:36:55 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/16 13:33:30 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	push(t_content *item, t_stack *stack)
+void	insert(t_content *item, t_stack *stack)
 {
 	t_cell		*new;
 	t_content	*pItem;
@@ -27,7 +27,20 @@ static void	push(t_content *item, t_stack *stack)
 	stack->size += 1;
 }
 
-static void	indexStack(t_stack *stack)
+int	pop(t_stack *stack)
+{
+	t_cell	*head;
+
+	head = stack->top;
+	stack->top = head->next;
+	stack->size--;
+	free(head->item);
+	free(head);
+	// verificar se é vaizo e tratar erro
+}
+
+// todo usar o indexsomente com sort, retirar instruction do push, main
+void	indexStack(t_stack *stack)
 {
 	t_cell	*head;
 	t_cell	*tmp;
@@ -65,14 +78,14 @@ static void	fillStack(char **argv, t_stack *stack)
 		if (ft_hasdigit(argv[i]))
 		{
 			item.num = ft_atoi(argv[i]);
-			push(&item, stack);
+			insert(&item, stack);
 		}
 		else
 			write(1, "Error2\n", 7);
 		i++;
 	}
 	indexStack(stack);
-	printstack(stack);
+	// printstack(stack);
 }
 
 void	createStacks(char **argv)
@@ -87,7 +100,7 @@ void	createStacks(char **argv)
 	stack_b->top = NULL;
 	stack_b->size = 0;
 	fillStack(argv, stack_a);
-	sort(stack_a);
+	sort(stack_a, stack_b);
 }
 
 int	printstack(t_stack *stack)
