@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:58:58 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/16 13:11:41 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/16 23:21:24 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	swap(t_stack *stack)
 	return (0);
 }
 
-int static	push(t_stack *stack_from, t_stack *stack_to)
+static int	push(t_stack *stack_from, t_stack *stack_to)
 {
 	t_content		*pItem;
 
@@ -44,6 +44,24 @@ int static	push(t_stack *stack_from, t_stack *stack_to)
 	indexStack(stack_to);
 	pop(stack_from);
 	indexStack(stack_from);
+	return (0);
+}
+
+static int	rotate(t_stack *stack)
+{
+	t_cell	*head;
+	t_cell	*tail;
+	t_cell	*tmp;
+
+	head = stack->top;
+	tmp = stack->top;
+	while (tmp->next)
+		tmp = tmp->next;
+	tail = tmp;
+	stack->top = head->next;
+	head->next = NULL;
+	tail->next = head;
+	return (0);
 }
 
 int	instruction(t_stack *stack_a, t_stack *stack_b, char *inst)
@@ -61,6 +79,15 @@ int	instruction(t_stack *stack_a, t_stack *stack_b, char *inst)
 		push(stack_b, stack_a);
 	if (inst[0] == 'p' && inst[1] == 'b')
 		push(stack_a, stack_b);
+	if (inst[0] == 'r' && inst[1] == 'a')
+		rotate(stack_a);
+	if (inst[0] == 'r' && inst[1] == 'b')
+		rotate(stack_b);
+	if (inst[0] == 'r' && inst[1] == 'r')
+	{
+		rotate(stack_a);
+		rotate(stack_b);
+	}
 	write(1, inst, 2);
 	write(1, " ", 1);
 	return (0);
