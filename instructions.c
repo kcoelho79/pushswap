@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:58:58 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/16 23:21:24 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/17 10:54:05 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,37 @@ static int	rotate(t_stack *stack)
 {
 	t_cell	*head;
 	t_cell	*tail;
-	t_cell	*tmp;
 
 	head = stack->top;
-	tmp = stack->top;
-	while (tmp->next)
-		tmp = tmp->next;
-	tail = tmp;
+	tail = stack->top;
+	while (tail->next)
+		tail = tail->next;
 	stack->top = head->next;
 	head->next = NULL;
 	tail->next = head;
+	return (0);
+}
+
+static int	reverseRotate(t_stack *stack)
+{
+	t_cell	*head;
+	t_cell	*tail;
+
+	head = stack->top;
+	tail = stack->top;
+	while (tail->next)
+		tail = tail->next;
+	while (head)
+	{
+		if (head->next->next == NULL)
+		{
+			head->next = NULL;
+			break ;
+		}
+		head = head->next;
+	}
+	tail->next = stack->top;
+	stack->top = tail;
 	return (0);
 }
 
@@ -88,7 +109,16 @@ int	instruction(t_stack *stack_a, t_stack *stack_b, char *inst)
 		rotate(stack_a);
 		rotate(stack_b);
 	}
+	if (inst[0] == 'x' && inst[1] == 'a')
+		reverseRotate(stack_a);
+	if (inst[0] == 'x' && inst[1] == 'b')
+		reverseRotate(stack_b);
+	if (inst[0] == 'r' && inst[1] == 'r' && inst[2] =='r')
+	{
+		reverseRotate(stack_a);
+		reverseRotate(stack_b);
+	}		
 	write(1, inst, 2);
-	write(1, " ", 1);
+	write(1, "\n", 1);
 	return (0);
 }

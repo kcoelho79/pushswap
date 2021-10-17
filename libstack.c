@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:19:38 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/16 23:01:44 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/17 10:46:26 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ static void	fillStack(char **argv, t_stack *stack)
 		i++;
 	}
 	indexStack(stack);
-	// printstack(stack);
 }
 
 void	createStacks(char **argv)
