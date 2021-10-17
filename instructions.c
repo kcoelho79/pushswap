@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:58:58 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/17 10:54:05 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/17 15:50:12 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,19 @@ static int	swap(t_stack *stack)
 static int	push(t_stack *stack_from, t_stack *stack_to)
 {
 	t_content		*pItem;
+	int				index;
 
 	// todo verificar erro tamanho stack 
 	if (stack_from->size < 1)
 		return (-1);
 	pItem = stack_from->top->item;
-	insert(pItem, stack_to);
-	indexStack(stack_to);
+	index = stack_from->top->index;
+	insert(pItem, index, stack_to);
+// 	indexStack(stack_to);
 	pop(stack_from);
-	indexStack(stack_from);
+// 	indexStack(stack_from);
+	// printstack(stack_from);
+	// printstack(stack_to);
 	return (0);
 }
 
@@ -59,6 +63,7 @@ static int	rotate(t_stack *stack)
 	stack->top = head->next;
 	head->next = NULL;
 	tail->next = head;
+// 	printstack(stack);
 	return (0);
 }
 
@@ -87,6 +92,8 @@ static int	reverseRotate(t_stack *stack)
 
 int	instruction(t_stack *stack_a, t_stack *stack_b, char *inst)
 {
+	write(1, inst, 2);
+	write(1, "\n", 1);
 	if (inst[0] == 's' && inst[1] == 'a')
 		swap(stack_a);
 	if (inst[0] == 's' && inst[1] == 'b')
@@ -118,7 +125,5 @@ int	instruction(t_stack *stack_a, t_stack *stack_b, char *inst)
 		reverseRotate(stack_a);
 		reverseRotate(stack_b);
 	}		
-	write(1, inst, 2);
-	write(1, "\n", 1);
 	return (0);
 }

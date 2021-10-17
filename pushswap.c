@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:27:47 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/17 11:02:40 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/17 17:50:17 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 		write(1, "Error1\n", 7);
 		exit(1);
 	}
-	createStacks(argv);
+	createStacks(argv, argc);
 
 	// #todo
 	// free_stack(stack_a);

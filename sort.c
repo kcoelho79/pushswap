@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:02:44 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/17 11:11:00 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/17 18:02:25 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int	sort(t_stack *stack_a, t_stack *stack_b)
 	// // printstack(stack_a);
 	// // printstack(stack_b);
 	radix_sort(stack_a, stack_b);
-	printstack(stack_a);
+	// printf("==== inicio sorted ====\n");
+	// printstack(stack_a);
 }

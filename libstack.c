@@ -6,13 +6,13 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:19:38 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/17 10:46:26 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/17 18:20:06 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	insert(t_content *item, t_stack *stack)
+void	insert(t_content *item, int index, t_stack *stack)
 {
 	t_cell		*new;
 	t_content	*pItem;
@@ -20,7 +20,7 @@ void	insert(t_content *item, t_stack *stack)
 	new = (t_cell *)malloc(sizeof(t_cell));
 	pItem = (t_content *)malloc(sizeof(t_content));
 	*(pItem) = *item;
-	new->index = -1;
+	new->index = index;
 	new->item = pItem;
 	new->next = stack->top;
 	stack->top = new;
@@ -39,7 +39,6 @@ int	pop(t_stack *stack)
 	// verificar se é vaizo e tratar erro
 }
 
-// todo usar o indexsomente com sort, retirar instruction do push, main
 void	indexStack(t_stack *stack)
 {
 	t_cell	*head;
@@ -52,7 +51,7 @@ void	indexStack(t_stack *stack)
 	i = 0;
 	while (i < stack->size)
 	{
-		index = 1;
+		index = 0;
 		num = head->item->num;
 		tmp = stack->top;
 		while (tmp != NULL)
@@ -67,27 +66,27 @@ void	indexStack(t_stack *stack)
 	}
 }
 
-static void	fillStack(char **argv, t_stack *stack)
+static void	fillStack(char **argv, int argc, t_stack *stack)
 {	
 	int			i;
 	t_content	item;
 
-	i = 1;
-	while (argv[i])
+	i = argc - 1;
+	while (i >= 1)
 	{
 		if (ft_hasdigit(argv[i]))
 		{
 			item.num = ft_atoi(argv[i]);
-			insert(&item, stack);
+			insert(&item, -1, stack);
 		}
 		else
 			write(1, "Error2\n", 7);
-		i++;
+		i--;
 	}
 	indexStack(stack);
 }
 
-void	createStacks(char **argv)
+void	createStacks(char **argv, int argc)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -98,7 +97,7 @@ void	createStacks(char **argv)
 	stack_b = (t_stack *)malloc(sizeof(t_stack));
 	stack_b->top = NULL;
 	stack_b->size = 0;
-	fillStack(argv, stack_a);
+	fillStack(argv, argc, stack_a);
 	sort(stack_a, stack_b);
 }
 
