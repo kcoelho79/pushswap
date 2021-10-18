@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:19:38 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 16:47:16 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:37:13 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,20 @@ void	indexStack(t_stack *stack)
 
 void	fillStack(char **argv, int argc, t_stack *stack)
 {	
-	int			i;
-	t_content	item;
+	int				i;
+	t_content		item;
+	unsigned int	tmp;
 
 	i = argc - 1;
 	while (i >= 1)
 	{
+		tmp = ft_atoi(argv[i]);
 		if (ft_hasdigit(argv[i]))
 		{
+			if (tmp < -2147483648 || tmp > 2147483647)
+				ft_error("Error");
+			if (has_duplicates(tmp, argv, i))
+				ft_error("Error");
 			item.num = ft_atoi(argv[i]);
 			insert(&item, -1, stack);
 		}

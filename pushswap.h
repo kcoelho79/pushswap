@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:21:05 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 16:46:36 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:44:18 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ int			rrr(t_stack *stack_a, t_stack *stack_b);
 int			sort(t_stack *stack_a, t_stack *stack_b);
 void		free_stack(t_stack *stack);
 void		ft_error(char *msg);
+int			has_duplicates(int num, char **argv, int i);
+int			is_sorted(t_stack *stack);
 
 #endif

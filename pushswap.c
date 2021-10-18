@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:27:47 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 16:46:26 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:46:17 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	main(int argc, char **argv)
 	stack_b->top = NULL;
 	stack_b->size = 0;
 	fillStack(argv, argc, stack_a);
-	sort(stack_a, stack_b);
+	if (!is_sorted(stack_a))
+		sort(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
