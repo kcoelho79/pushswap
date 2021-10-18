@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:02:44 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 09:01:41 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 16:27:42 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,39 +51,23 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 		{
 			head_a = stack_a->top;
 			if (((head_a->index >> i) & 1) == 1)
-				instruction(stack_a, NULL, "ra");
+				ra(stack_a);
 			else
-				instruction(stack_a, stack_b, "pb");
+				pb(stack_a, stack_b);
 			j++;
 		}
 		while (stack_b->size != 0)
-			instruction(stack_a, stack_b, "pa");
+			pa(stack_a, stack_b);
 		i++;
 	}
 }
 
 int	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	// instruction(stack_a, stack_b, "pb");
-	// instruction(stack_a, stack_b, "pb");
-	// instruction(stack_a, stack_b, "pb");
-	// // printstack(stack_a);
-	// // printstack(stack_b);
-	// instruction(stack_a, NULL, "ra");
-	// instruction(NULL, stack_b, "rb");
-	// // printstack(stack_a);
-	// // printstack(stack_b);
-	// instruction(stack_a, NULL, "xa");
-	// // printstack(stack_a);
-	// instruction(NULL, stack_b, "xb");
-	// // printstack(stack_b);
-	// instruction(stack_a, NULL, "sa");
-	// instruction(stack_a, stack_b, "pa");
-	// instruction(stack_a, stack_b, "pa");
-	// instruction(stack_a, stack_b, "pa");
-	// // printstack(stack_a);
-	// // printstack(stack_b);
+	printstack(stack_a);
 	radix_sort(stack_a, stack_b);
-	// printf("==== inicio sorted ====\n");
-	// printstack(stack_a);
+	printf("==== inicio sorted ====\n");
+	printstack(stack_a);
+	pa(stack_a, stack_b);
+	printstack(stack_a);
 }

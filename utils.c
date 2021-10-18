@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 13:27:47 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 16:46:26 by kde-oliv         ###   ########.fr       */
+/*   Created: 2021/10/18 16:30:45 by kde-oliv          #+#    #+#             */
+/*   Updated: 2021/10/18 16:41:42 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char **argv)
+void	free_stack(t_stack *stack)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_cell		*head;
+	t_cell		*tmp;
+	t_content	*item;
 
-	if (argc == 1)
-		ft_error("Error");
-	stack_a = (t_stack *)malloc(sizeof(t_stack));
-	stack_a->top = NULL;
-	stack_a->size = 0;
-	stack_b = (t_stack *)malloc(sizeof(t_stack));
-	stack_b->top = NULL;
-	stack_b->size = 0;
-	fillStack(argv, argc, stack_a);
-	sort(stack_a, stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
+	head = stack->top;
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp->item);
+		free(tmp);
+	}
+	free(stack);
+}
+
+void	ft_error(char *msg)
+{
+	ft_putendl_fd(msg, 1);
+	exit(0);
 }

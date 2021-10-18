@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:19:38 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/17 18:20:06 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 16:47:16 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ int	pop(t_stack *stack)
 {
 	t_cell	*head;
 
+	if (stack->size <= 0)
+		return (1);
 	head = stack->top;
 	stack->top = head->next;
 	stack->size--;
 	free(head->item);
 	free(head);
-	// verificar se é vaizo e tratar erro
 }
 
 void	indexStack(t_stack *stack)
@@ -66,7 +67,7 @@ void	indexStack(t_stack *stack)
 	}
 }
 
-static void	fillStack(char **argv, int argc, t_stack *stack)
+void	fillStack(char **argv, int argc, t_stack *stack)
 {	
 	int			i;
 	t_content	item;
@@ -80,25 +81,10 @@ static void	fillStack(char **argv, int argc, t_stack *stack)
 			insert(&item, -1, stack);
 		}
 		else
-			write(1, "Error2\n", 7);
+			ft_error("Error");
 		i--;
 	}
 	indexStack(stack);
-}
-
-void	createStacks(char **argv, int argc)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	stack_a = (t_stack *)malloc(sizeof(t_stack));
-	stack_a->top = NULL;
-	stack_a->size = 0;
-	stack_b = (t_stack *)malloc(sizeof(t_stack));
-	stack_b->top = NULL;
-	stack_b->size = 0;
-	fillStack(argv, argc, stack_a);
-	sort(stack_a, stack_b);
 }
 
 int	printstack(t_stack *stack)
