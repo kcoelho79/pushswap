@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:02:44 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/17 18:02:25 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 09:01:41 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 
 int	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	// instruction(stack_a, NULL, "sa");
 	// instruction(stack_a, stack_b, "pb");
 	// instruction(stack_a, stack_b, "pb");
 	// instruction(stack_a, stack_b, "pb");

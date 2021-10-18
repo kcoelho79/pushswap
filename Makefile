@@ -6,11 +6,11 @@
 #    By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/13 11:20:36 by kde-oliv          #+#    #+#              #
-#    Updated: 2021/10/13 17:35:15 by kde-oliv         ###   ########.fr        #
+#    Updated: 2021/10/17 18:35:20 by kde-oliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= pushswap.a
+NAME	= push_swap.a
 SRCS	= $(wildcard *.c)
 LFT		= ./libft/libft.a
 OBJS	= $(SRCS:.c=.o)
@@ -24,7 +24,7 @@ all		:		$(LFT) $(NAME)
 $(NAME)	:		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
 				ranlib $(NAME)
-				$(CC) $(FLAGS) $(NAME) -I ./libft -L ./libft -lft -o pushswap
+				$(CC) $(FLAGS) $(NAME) -I ./libft -L ./libft -lft -o push_swap
 
 
 %.o:	%.c
@@ -43,7 +43,7 @@ clean	:
 
 fclean	:		clean
 				@make fclean -C libft
-				$(RM) $(NAME) pushswap
+				$(RM) $(NAME) push_swap
 				@echo "objects program removed."
 
 
