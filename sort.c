@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:02:44 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/19 17:02:18 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:07:09 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,13 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < size)
+		while (j++ < size)
 		{
 			head_a = stack_a->top;
 			if (((head_a->index >> i) & 1) == 1)
 				ra(stack_a);
 			else
 				pb(stack_a, stack_b);
-			j++;
 		}
 		while (stack_b->size != 0)
 			pa(stack_a, stack_b);
