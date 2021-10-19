@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:02:44 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 23:07:39 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:02:18 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,38 +62,10 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-static int	meu(t_stack *stack_a, t_stack *stack_b)
-{
-	t_cell	*head;
-	int		i;
-
-	i = 0;
-	head = stack_a->top;
-	while (head != NULL)
-	{
-		if (head->index == i)
-		{
-			pb(stack_a, stack_b);
-			i++;
-		}
-		else
-			ra(stack_a);
-		head = stack_a->top;
-	}
-	while (i > 0)
-	{
-		pa(stack_a, stack_b);
-		i--;
-	}
-}
-
 int	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	//printstack(stack_a);
 	if (stack_a->size <= 5)
-		meu(stack_a, stack_b);
-	// // 	simple_sort(stack_a, stack_b);
+		simple_sort(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
-	// printstack(stack_a);
 }
