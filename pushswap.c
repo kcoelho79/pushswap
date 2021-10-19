@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:27:47 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 19:46:17 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 23:12:45 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 
 	if (argc == 1)
-		ft_error("Error");
+		exit (0);
 	stack_a = (t_stack *)malloc(sizeof(t_stack));
 	stack_a->top = NULL;
 	stack_a->size = 0;

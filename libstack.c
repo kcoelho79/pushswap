@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:19:38 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 19:37:13 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/18 22:40:08 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	fillStack(char **argv, int argc, t_stack *stack)
 {	
 	int				i;
 	t_content		item;
-	unsigned int	tmp;
+	long			tmp;
 
 	i = argc - 1;
 	while (i >= 1)
