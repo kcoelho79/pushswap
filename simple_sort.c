@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:29:57 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/19 17:01:44 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/20 08:43:36 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static int	sort2(t_stack *stack)
 {
-	sa(stack);
+	if (stack->size > 1)
+		if (stack->top->index > stack->top->next->index)
+			sa(stack);
 	return (0);
 }
 
@@ -47,7 +49,7 @@ static int	sort4_5(t_stack *stack_a, t_stack *stack_b)
 
 	size = stack_a->size;
 	i = 0;
-	while (i < 5)
+	while (i < size)
 	{
 		if (stack_a->top->index == 3 || stack_a->top->index == 4)
 			ra(stack_a);
@@ -55,8 +57,7 @@ static int	sort4_5(t_stack *stack_a, t_stack *stack_b)
 			pb(stack_a, stack_b);
 		i++;
 	}
-	if (stack_a->top->index > stack_a->top->next->index)
-		sort2(stack_a);
+	sort2(stack_a);
 	indexStack(stack_b);
 	i = stack_b->size - 1;
 	while (i >= 0)

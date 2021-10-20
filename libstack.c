@@ -6,7 +6,7 @@
 /*   By: kde-oliv <kde-oliv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:19:38 by kde-oliv          #+#    #+#             */
-/*   Updated: 2021/10/18 22:40:08 by kde-oliv         ###   ########.fr       */
+/*   Updated: 2021/10/20 08:53:47 by kde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,4 @@ void	fillStack(char **argv, int argc, t_stack *stack)
 		i--;
 	}
 	indexStack(stack);
-}
-
-int	printstack(t_stack *stack)
-{
-	t_cell	*head;
-
-	head = stack->top;
-	printf("tamanho da pilha %i\n", stack->size);
-	while (head != NULL)
-	{
-		printf("num[%d] index[%d]\n", head->item->num, head->index);
-		head = head->next;
-	}
-	return (0);
 }
